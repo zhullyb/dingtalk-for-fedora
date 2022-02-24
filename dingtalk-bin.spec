@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
-%undefine _debugsource_packages
+%global debug_package %{nil}
 %define _build_id_links none
 AutoReqProv: no
 
 Name:           dingtalk-bin
 Version:        1.3.0.20214
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        钉钉
 
 License:        Custom
@@ -58,6 +58,9 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 /opt/dingtalk-bin/
 
 %changelog
+* Thu Feb 24 2022 zhullyb <zhullyb@outlook.com> - 1.3.0.20214-2
+- Disable debuginfo package generation.
+
 * Sun Feb 20 2022 zhullyb <zhullyb@outlook.com> - 1.3.0.20214-1
 - Update to 1.3.0.20214
 
