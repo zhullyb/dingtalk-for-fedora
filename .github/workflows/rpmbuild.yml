@@ -13,7 +13,7 @@ jobs:
       with:
         spec_file: "dingtalk-bin.spec"
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3.0.0
+    - name: Upload Artifact
+      uses: nanoufo/action-upload-artifacts-and-release-assets@v1.4
       with:
-        path: ${{ steps.rpm.outputs.rpm_dir_path }}/x86_64/*.rpm
+        path: ${{ steps.rpm.outputs.rpm_dir_path }}/**/*.rpm
