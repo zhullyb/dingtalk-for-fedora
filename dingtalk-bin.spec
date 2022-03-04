@@ -1,6 +1,7 @@
 %global __brp_check_rpaths %{nil}
 %global debug_package %{nil}
 %define _build_id_links none
+%undefine __arch_install_post
 AutoReqProv: no
 
 Name:           dingtalk-bin
