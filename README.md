@@ -4,9 +4,9 @@ English | [中文](README_zh.md)
 
 ## Description
 
-This repository provides spec file which can help you to repack the official dingtalk deb package to rpm package.
+This repository provides the spec file which can help you to repack the official dingtalk deb package to rpm package.
 
-If you don't want to build it by yourself, you can download the binary rpm built by github action from [this page](https://github.com/zhullyb/dingtalk-for-fedora/actions/workflows/rpmbuild.yml), simply click the **latest workflow run** with ✅ labeled and download the **Artifacts** with your github account logged-in.
+If you don't want to build it yourself, you can download the binary rpm built by GitHub Actions from [this page](https://github.com/zhullyb/dingtalk-for-fedora/actions/workflows/rpmbuild.yml), simply click the **latest workflow run** with ✅ labeled and download the **Artifacts** with your github account logged-in.
 
 ## Build
 
@@ -33,12 +33,24 @@ rpmbuild -bs ../SPECS/dingtalk-bin.spec
 mock --rebuild dingtalk-bin*.src.rpm 
 ```
 
-## Q&A
+## Usage
+This part documents common problems encountered while using this package.
 
-Q: Why no release was created ?
+### Elevator.sh is not working?
+DO NOT use the `Elevator.sh` provided by the package, which is deprecated. Rather, use the `/usr/bin/dingtalk` executable created by the
+package or the desktop file it created.
+
+### Cannot Download files?
+This is reported by KDE users at the moment. If you cannot download any files, please untick the "Use System File Manager Dialog" in your 
+preferences. (Avator -> Settings -> Downloads)
+
+
+## FAQ
+
+Q: Why no release was created?
 
 A: I don't have the right to redistribute the software, so I shouldn't create a release on some extent.
 
-Q: I saw that the file name downloaded from github action is labeled with "fc35", can I install the package to fedora 34 or some other version ?
+Q: I saw that the file downloaded from GitHub Actions is labeled with "fc35", can I install the package to fedora 34 or some other version ?
 
-A: You can install it to other fedora version, but I can't guarantee whether the software can be runned corrently, so you make the decision.
+A: Installation and running on other Fedora versions have not been tested but it should work (no guarantees). Use at your own expense.

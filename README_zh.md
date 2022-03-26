@@ -33,6 +33,14 @@ rpmbuild -bs ../SPECS/dingtalk-bin.spec
 mock --rebuild dingtalk-bin*.src.rpm 
 ```
 
+## 常见问题
+
+### 无法使用 Elevator.sh?
+**Elevator.sh** 已被弃用，请直接运行 `/usr/bin/dingtalk`。
+
+### 无法下载任何文件?
+目前只有 KDE 用户报告这个问题。请在个人设置（头像 -> 设置 -> 下载） 中去掉“使用系统文件对话框”的选项。
+
 ## Q&A
 
 Q: 为什么不发个 release ？
