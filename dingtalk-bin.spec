@@ -5,7 +5,7 @@
 AutoReqProv: no
 
 Name:           dingtalk-bin
-Version:        1.4.0.42
+Version:        1.4.0.20408
 Release:        1%{?dist}
 Summary:        钉钉
 
@@ -59,6 +59,9 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 /opt/dingtalk-bin/
 
 %changelog
+* Sat Apr 09 2022 zhullyb <zhullyb@outlook.com> - 1.4.0.20408-1
+- new version
+
 * Thu Mar 24 2022 zhullyb <zhullyb@outlook.com> - 1.4.0.42-1
 - new version
 
