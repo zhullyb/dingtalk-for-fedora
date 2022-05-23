@@ -6,7 +6,7 @@ AutoReqProv: no
 
 Name:           dingtalk-bin
 Version:        1.4.0.20425
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        钉钉
 
 License:        Custom
@@ -16,7 +16,7 @@ Source1:        https://tms.dingtalk.com/markets/dingtalk/service-terms-zh
 Source2:        dingtalk-bin.desktop
 Source3:        dingtalk.svg
 Source4:        dingtalk-launcher.sh
-Source5:        libk5crypto.so.3
+Source5:        libcairo.so.2
 BuildRequires:  dpkg
 # Requires:       zenity
 
@@ -59,6 +59,9 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 /opt/dingtalk-bin/
 
 %changelog
+* Mon May 23 2022 zhullyb <zhullyb@outlook.com> - 1.4.0.20425-2
+- Build for Fedora36
+
 * Sat Apr 30 2022 zhullyb <zhullyb@outlook.com> - 1.4.0.20425-1
 - new version
 
