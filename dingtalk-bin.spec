@@ -5,8 +5,8 @@
 AutoReqProv: no
 
 Name:           dingtalk-bin
-Version:        1.4.0.20425
-Release:        2%{?dist}
+Version:        1.4.0.20829
+Release:        1%{?dist}
 Summary:        钉钉
 
 License:        Custom
@@ -59,6 +59,9 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 /opt/dingtalk-bin/
 
 %changelog
+* Tue Jan 17 2023 zhullyb <zhullyb@outlook.com> - 1.4.0.20829-1
+- new version
+
 * Mon May 23 2022 zhullyb <zhullyb@outlook.com> - 1.4.0.20425-2
 - Build for Fedora36
 
