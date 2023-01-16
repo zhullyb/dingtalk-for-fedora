@@ -5,8 +5,8 @@
 AutoReqProv: no
 
 Name:           dingtalk-bin
-Version:        1.4.0.20425
-Release:        2%{?dist}
+Version:        1.4.0.20829
+Release:        1%{?dist}
 Summary:        钉钉
 
 License:        Custom
