@@ -5,7 +5,7 @@
 AutoReqProv: no
 
 Name:           dingtalk-bin
-Version:        1.4.0.20425
+Version:        1.4.0.20829
 Release:        2%{?dist}
 Summary:        钉钉
 
