@@ -6,7 +6,7 @@ AutoReqProv: no
 
 Name:           dingtalk-bin
 Version:        1.6.0.230113
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        钉钉
 
 License:        Custom
@@ -69,9 +69,11 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libcurl.so.4,libz*}
 /opt/dingtalk-bin/
 
 %changelog
+* Tue Jan 17 2023 zhullyb <zhullyb@outlook.com> - 1.6.0.230113-2
+- fix open url
+
 * Tue Jan 17 2023 zhullyb <zhullyb@outlook.com> - 1.6.0.230113-1
 - new version
-- fix open url
 - remove unused lib
 - depend libGLU.so.1 and libxcrypt-compat
 - use x11 if dingtalk do not support wayland
