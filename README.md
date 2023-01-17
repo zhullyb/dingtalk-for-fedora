@@ -51,6 +51,6 @@ Q: Why no release was created?
 
 A: I don't have the right to redistribute the software, so I shouldn't create a release on some extent.
 
-Q: I saw that the file downloaded from GitHub Actions is labeled with "fc35", can I install the package to fedora 34 or some other version ?
+Q: I saw that the file downloaded from GitHub Actions is labeled with "fc37", can I install the package to fedora 36 or some other version ?
 
 A: Installation and running on other Fedora versions have not been tested but it should work (no guarantees). Use at your own expense.

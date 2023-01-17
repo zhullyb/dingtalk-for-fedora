@@ -6,7 +6,7 @@
 
 这个仓库提供了可以帮助你把官方的钉钉deb包打成rpm包的spec文件。
 
-如果你不想自己构建rpm包，你可以登陆 github 帐号，在这个页面点击最近的一次被✅标记的 action， 下载里面的 Artifacts。
+如果你不想自己构建rpm包，你可以登陆 github 帐号，在[这个页面](https://github.com/zhullyb/dingtalk-for-fedora/actions/workflows/rpmbuild.yml)点击最近的一次被✅标记的 action， 下载里面的 Artifacts。
 
 ## Build
 
@@ -47,6 +47,6 @@ Q: 为什么不发个 release ？
 
 A: 我无权分发重新打包的钉钉的rpm包，所以从某种程度上来说，我不应该发 release。
 
-Q: 我注意到从 github action 下载的 Artifacts 文件名中有 "fc35" 的标识，我可以在 fedora 34 或者别的版本上安装它嘛？
+Q: 我注意到从 github action 下载的 Artifacts 文件名中有 "fc37" 的标识，我可以在 fedora 36 或者别的版本上安装它嘛？
 
 A: 可以，但我不能保证它可以被正常运行，所以到底要不要安装的决定权在你手里。
