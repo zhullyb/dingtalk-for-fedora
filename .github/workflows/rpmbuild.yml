@@ -13,7 +13,7 @@ jobs:
 
     - name: build RPM package
       id: rpm
-      uses: zhullyb/rpmbuild@master
+      uses: zhullyb/rpmbuild-github-action@master
       with:
         spec_file: "dingtalk-bin.spec"
 
