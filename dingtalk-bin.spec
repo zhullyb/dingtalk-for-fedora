@@ -5,7 +5,7 @@
 AutoReqProv: no
 
 Name:           dingtalk-bin
-Version:        1.4.0.20829
+Version:        1.6.0.230113
 Release:        1%{?dist}
 Summary:        钉钉
 
@@ -17,8 +17,10 @@ Source2:        dingtalk-bin.desktop
 Source3:        dingtalk.svg
 Source4:        dingtalk-launcher.sh
 Source5:        libcairo.so.2
+Source6:        xdg-open
 BuildRequires:  dpkg
-# Requires:       zenity
+Requires:       libGLU.so.1
+Requires:       libxcrypt-compat
 
 %description
 钉钉
@@ -47,9 +49,17 @@ install -d %{buildroot}%{_bindir}
 install -Dm755 %{S:4} %{buildroot}%{_bindir}/dingtalk
 
 # Patch
+# fix cairo
 install -Dm644 %{S:5} %{buildroot}/opt/dingtalk-bin/*Release*
-rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libm.so.6,Resources/{i18n/tool/*.exe,qss/mac}}
+# fix chinese input in workbench
+rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libm.so.6,Resources/{i18n/tool/*.exe,qss/mac,web_content/NativeWebContent_*.zip},libstdc*}
+# fix chinese input in workbench
 rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
+# fix open url
+install -Dm755 %{S:6} -t %{buildroot}/opt/dingtalk-bin/*Release*
+
+# remove unused lib
+rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libcurl.so.4,libz*}
 
 %files
 %license LICENSE
@@ -59,6 +69,13 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 /opt/dingtalk-bin/
 
 %changelog
+* Tue Jan 17 2023 zhullyb <zhullyb@outlook.com> - 1.6.0.230113-1
+- new version
+- fix open url
+- remove unused lib
+- depend libGLU.so.1 and libxcrypt-compat
+- use x11 if dingtalk do not support wayland
+
 * Tue Jan 17 2023 zhullyb <zhullyb@outlook.com> - 1.4.0.20829-1
 - new version
 
