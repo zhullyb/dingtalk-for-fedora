@@ -1,0 +1,8 @@
+# local build output (private rpm topdir created by build.sh)
+/build/
+
+# build artifacts copied next to build.sh
+*.rpm
+
+# official source packages are large and not redistributable
+*.deb
