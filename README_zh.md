@@ -27,7 +27,7 @@
 构建依赖（只需安装一次，需要权限）：
 
 ```bash
-sudo dnf install rpm-build dpkg execstack
+sudo dnf install rpm-build dpkg execstack gcc-c++
 ```
 
 安装构建产物（需要权限）：
@@ -65,6 +65,10 @@ mock --rebuild dingtalk-bin*.src.rpm
 ```
 
 ## 常见问题
+
+### 粘贴纯文本后换行消失？
+
+钉钉 `8.1.0.6021101` 在 Linux 上将剪贴板文本按 Markdown 解析插入，单独换行会被折叠。本仓库通过 `dingtalk-gray-hook.so` 覆盖相应灰度开关。详见 [docs/plain-text-paste-newlines.md](docs/plain-text-paste-newlines.md)。
 
 ### 无法使用 Elevator.sh?
 **Elevator.sh** 已被弃用，请直接运行 `/usr/bin/dingtalk`。

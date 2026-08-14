@@ -60,7 +60,7 @@ done
 mkdir -p "$topdir"/{SOURCES,SPECS,BUILD,BUILDROOT,RPMS,SRPMS}
 
 cp -f "$deb" "$topdir/SOURCES/com.alibabainc.dingtalk_${version}_amd64.deb"
-for s in dingtalk-bin.desktop dingtalk.svg dingtalk-launcher.sh xdg-open; do
+for s in dingtalk-bin.desktop dingtalk.svg dingtalk-launcher.sh xdg-open dingtalk-gray-hook.cpp; do
     [[ -f "$s" ]] || die "missing source file: $s"
     cp -f "$s" "$topdir/SOURCES/"
 done

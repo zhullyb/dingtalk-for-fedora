@@ -22,8 +22,10 @@ Source2:        dingtalk-bin.desktop
 Source3:        dingtalk.svg
 Source4:        dingtalk-launcher.sh
 Source6:        xdg-open
+Source7:        dingtalk-gray-hook.cpp
 BuildRequires:  dpkg
 BuildRequires:  execstack
+BuildRequires:  gcc-c++
 Requires:       libGLU.so.1
 Requires:       libxcrypt-compat
 # Use the system cairo instead of the bundled patch library.
@@ -39,6 +41,7 @@ dpkg -X %{S:0} .
 
 %build
 cp %{S:1} ./LICENSE
+g++ -shared -fPIC -O2 -D_GNU_SOURCE -Wl,-z,defs %{S:7} -o dingtalk-gray-hook.so -ldl
 
 %install
 # Main program
@@ -63,6 +66,8 @@ rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libm.so.6,Resources/{i18n/tool/*
 rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/libgtk-x11-2.0.so.*
 # fix open url
 install -Dm755 %{S:6} -t %{buildroot}/opt/dingtalk-bin/*Release*
+# keep plain-text newlines on paste (see dingtalk-gray-hook.cpp)
+install -Dm755 dingtalk-gray-hook.so -t %{buildroot}/opt/dingtalk-bin/*Release*
 
 # remove unused lib
 rm -rf %{buildroot}/opt/dingtalk-bin/*Release*/{libcurl.so.4,libz*}
@@ -81,6 +86,9 @@ done
 /opt/dingtalk-bin/
 
 %changelog
+* Fri Aug 14 2026 local build - 8.1.0.6021101-1
+- preserve newlines when pasting plain text (disable markdown paste gray switch)
+
 * Fri Jul 10 2026 local build - 8.1.0.6021101-1
 - parameterize version via --define "dt_version ..."
 - use system cairo (drop bundled libcairo.so.2 patch)

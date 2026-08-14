@@ -27,7 +27,7 @@ The script uses `./build` as a private rpm topdir, so it never touches `~/rpmbui
 Build dependencies (install once, needs privileges):
 
 ```bash
-sudo dnf install rpm-build dpkg execstack
+sudo dnf install rpm-build dpkg execstack gcc-c++
 ```
 
 Install the result (needs privileges):
@@ -66,6 +66,9 @@ mock --rebuild dingtalk-bin*.src.rpm
 
 ## Usage
 This part documents common problems encountered while using this package.
+
+### Pasted plain text loses newlines?
+DingTalk `8.1.0.6021101` on Linux inserts clipboard text as Markdown, so a single newline is collapsed. This repo preloads `dingtalk-gray-hook.so` to turn that gray switch off. See [docs/plain-text-paste-newlines.md](docs/plain-text-paste-newlines.md).
 
 ### Elevator.sh is not working?
 DO NOT use the `Elevator.sh` provided by the package, which is deprecated. Rather, use the `/usr/bin/dingtalk` executable created by the
